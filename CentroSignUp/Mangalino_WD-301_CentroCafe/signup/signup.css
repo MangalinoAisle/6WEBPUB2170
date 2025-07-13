@@ -1,0 +1,134 @@
+body {
+  background: url('./images/DSCF0195.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  width: 50%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 2px solid #e3b8b8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-logo {
+  display: block;
+  width: 90px;
+  margin: 0 auto 15px auto;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d62828;
+  font-size: 24px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fdfdfd;
+  transition: 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #d62828;
+  outline: none;
+}
+
+.gender-options {
+  margin-top: 5px;
+}
+
+.gender-options label {
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 48%;
+  transition: 0.2s;
+}
+
+#submit-btn {
+  background-color: #d62828;
+  color: white;
+}
+
+#submit-btn:hover {
+  background-color: #a71e1e;
+}
+
+#reset-btn {
+  background-color: #ccc;
+  color: #222;
+}
+
+#reset-btn:hover {
+  background-color: #999;
+}
+
+#display-area {
+  width: 50%;
+  background: #fff;
+  padding: 25px;
+  border: 2px solid #e3b8b8;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#display-area h2 {
+  color: #d62828;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#display-area p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #333;
+}
