@@ -1,0 +1,164 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fffdf9;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #d62828;
+  font-weight: bold;
+}
+
+.hero {
+  background: url('images/cafe-bg.jpeg') no-repeat center center/cover;
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  padding: 2rem;
+}
+
+section:nth-child(even) {
+  background: #fef3f3;
+}
+
+h2 {
+  color: #d62828;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+section p.intro {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #555;
+  font-style: italic;
+}
+
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background-color: #d62828;
+  border-radius: 4px;
+}
+
+.gallery::-webkit-scrollbar-track {
+  background: #fef3f3;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.videos video {
+  flex: 1 1 calc(50% - 1rem);
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.videos video:hover {
+  transform: scale(1.05);
+}
+
+.back-btn {
+  display: block;
+  width: max-content;
+  margin: 2rem auto 0;
+  background: #d62828;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #a31b1b;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f8f8;
+  font-size: 0.9rem;
+  color: #666;
+}
