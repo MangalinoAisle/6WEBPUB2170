@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Centro Café</title>
+  <link rel="stylesheet" href="styles.css" />
+ 
+</head>
+<body>
+   <nav>
+    <img src="images/centro-logo.png" alt="Centro Café Logo" class="logo" />
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+       <li><a href="feature.html">Feature</a></li>
+      <li><a href="contact.html">Contact</a></li>
+     
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Contact Centro Café</h1>
+      <p>Get in touch with us for inquiries, orders, or feedback!</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form class="contact-form" id="contactForm" action="#" method="post">
+          <label>Your Name
+            <input type="text" name="name" placeholder="Enter your name" required>
+          </label>
+          <label>Contact Number
+            <input type="tel" name="phone" placeholder="0917-123-4567" required>
+          </label>
+          <label>Email Address
+            <input type="email" name="email" placeholder="hello@centrocafe.ph" required>
+          </label>
+          <label>Message
+            <textarea name="message" placeholder="Your message" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Visit Us</h2>
+        <p>📍 Sto. Rosario Heritage District, Angeles City, Pampanga</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.7015707361217!2d120.58940421482582!3d15.143903789470529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339697179da4bc93%3A0x9a69b6eb18c3c634!2sSto.%20Rosario%20Heritage%20District%2C%20Angeles%20City!5e0!3m2!1sen!2sph!4v1689812345678!5m2!1sen!2sph"
+            width="100%"
+            height="300"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Thank You Modal -->
+  <div id="thankyou-modal">
+    <div class="modal-content">
+      <h2>Thank You!</h2>
+      <p>Your message has been sent successfully. We’ll get back to you soon.</p>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Centro Café. All rights reserved.</p>
+  </footer>
+   <style>
+    /* Pop-up modal styling */
+    #thankyou-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #thankyou-modal .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      font-family: 'Segoe UI', sans-serif;
+      color: #d62828;
+    }
+    #thankyou-modal button {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      background: #d62828;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #thankyou-modal button:hover {
+      background: #a31d1d;
+    }
+  </style>
+  <script>
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('thankyou-modal');
+    const closeBtn = document.getElementById('close-modal');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent actual form submission
+      modal.style.display = 'flex'; // show modal
+      form.reset(); // reset form fields
+    });
+
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside modal content
+    window.addEventListener('click', function(e) {
+      if (e.target == modal) modal.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

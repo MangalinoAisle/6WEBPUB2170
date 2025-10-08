@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Centro Café</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Red theme for search + sort */
+    .menu-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    #search, #sort {
+      padding: 0.6rem 1rem;
+      border: 2px solid #b30000;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: white;
+      color: #b30000;
+      font-weight: bold;
+    }
+    #search::placeholder {
+      color: #b30000;
+      opacity: 0.8;
+    }
+    #search:focus, #sort:focus {
+      outline: none;
+      border-color: #ff0000;
+      box-shadow: 0 0 5px rgba(255,0,0,0.5);
+    }
+    .menu-category {
+      margin: 3rem auto;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+    .menu-category h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 per row */
+      gap: 1.5rem;
+    }
+    .item {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.2s ease;
+    }
+    .item:hover { transform: scale(1.02); }
+    .item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .item-content { padding: 1rem; text-align: center; }
+    .item-content h3 { margin: 0.5rem 0; }
+    .rating {
+      display: flex;
+      justify-content: center; /* center stars */
+      gap: 2px;
+      margin-top: 0.3rem;
+    }
+    .star {
+      font-size: 1.2rem;
+      color: #ccc;
+      cursor: pointer;
+    }
+    .star.filled { color: gold; }
+    .btn-order {
+      display: inline-block;
+      margin-top: 0.7rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 0.7rem 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+   <nav>
+    <img src="images/centro-logo.png" alt="Centro Café Logo" class="logo" />
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="menu.html">Menu</a></li>
+       <li><a href="feature.html">Feature</a></li>
+      <li><a href="contact.html">Contact</a></li>
+     
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" style="background: url('images/cafe-bg.jpeg') center/cover no-repeat; height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 1rem;">
+    <div class="hero-text">
+      <h1>Explore Our Menu</h1>
+      <p>Delicious coffee, comfort food, and sweet treats — crafted for you every day.</p>
+    </div>
+    <div class="menu-controls">
+      <input type="text" id="search" placeholder="Search items...">
+      <select id="sort">
+        <option value="">-- Sort By --</option>
+        <option value="popularity">Popularity</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="newest">Newest</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- All Items -->
+  <section class="menu-category" id="menu-section">
+    <h2>All Items</h2>
+    <div class="menu-grid" id="menu-items">
+
+      <!-- Existing Items -->
+      <div class="item" data-popularity="5" data-price="150" data-date="2025-09-01">
+        <img src="images/centro-coffee.jpg" alt="Centro Coffee">
+        <div class="item-content">
+          <h3>Centro Coffee</h3>
+          <p>Rich coffee blended with creamy milk & topped with caramelized foam</p>
+          <p><strong>₱150</strong></p>
+          <div class="rating" data-item="choco-milk"></div>
+          <a href="order-item.html?name=Choco%20Milk&price=150&image=images/centro-coffee.jpg&desc=Rich%20coffee%20blended%20with%20creamy%20milk%20and%20topped%20with%20caramelized%20foam" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="9" data-price="120" data-date="2025-09-18">
+        <img src="images/barako-coffee.jpeg" alt="Barako Coffee">
+        <div class="item-content">
+          <h3>Barako Coffee</h3>
+          <p>Strong local brewed Barako coffee.</p>
+          <p><strong>₱120</strong></p>
+          <div class="rating" data-item="barako-coffee"></div>
+          <a href="order-item.html?name=Barako%20Coffee&price=120&image=images/barako-coffee.jpeg&desc=Strong%20local%20brewed%20Barako%20coffee" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="8" data-price="280" data-date="2025-09-17">
+        <img src="images/beef-kaldereta.jpg" alt="Beef Kaldereta">
+        <div class="item-content">
+          <h3>Beef Kaldereta</h3>
+          <p>Classic Filipino beef stew with vegetables.</p>
+          <p><strong>₱280</strong></p>
+          <div class="rating" data-item="beef-kaldereta"></div>
+          <a href="order-item.html?name=Beef%20Kaldereta&price=280&image=images/beef-kaldereta.jpg&desc=Classic%20Filipino%20beef%20stew%20with%20vegetables" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="7" data-price="250" data-date="2025-09-16">
+        <img src="images/beef tapa.jpg" alt="Beef Tapa">
+        <div class="item-content">
+          <h3>Beef Tapa</h3>
+          <p>Filipino beef tapa served with rice and egg.</p>
+          <p><strong>₱250</strong></p>
+          <div class="rating" data-item="beef-tapa"></div>
+          <a href="order-item.html?name=Beef%20Tapa&price=250&image=images/beef%20tapa.jpg&desc=Filipino%20beef%20tapa%20served%20with%20rice%20and%20egg" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="8" data-price="200" data-date="2025-09-15">
+        <img src="images/biscoff.jpg" alt="Biscoff">
+        <div class="item-content">
+          <h3>Biscoff</h3>
+          <p>Coffee with Biscoff cookie flavor.</p>
+          <p><strong>₱200</strong></p>
+          <div class="rating" data-item="biscoff"></div>
+          <a href="order-item.html?name=Biscoff&price=200&image=images/biscoff.jpg&desc=Coffee%20with%20Biscoff%20cookie%20flavor" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="9" data-price="190" data-date="2025-09-14">
+        <img src="images/chickenfingers.jpg" alt="Chicken Fingers">
+        <div class="item-content">
+          <h3>Chicken Fingers</h3>
+          <p>Crispy chicken fingers with dip.</p>
+          <p><strong>₱190</strong></p>
+          <div class="rating" data-item="chicken-fingers"></div>
+          <a href="order-item.html?name=Chicken%20Fingers&price=190&image=images/chickenfingers.jpg&desc=Crispy%20chicken%20fingers%20with%20dip" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+    <div class="item" data-popularity="10" data-price="180" data-date="2025-09-13">
+      <img src="images/spaghetti-bolognese.jpg" alt="Spaghetti Bolognese">
+      <div class="item-content">
+        <h3>Spaghetti Bolognese</h3>
+        <p>Spaghetti pasta topped with a rich and savory meat sauce.</p>
+        <p><strong>₱180</strong></p>
+        <div class="rating" data-item="Spaghetti Bolognese"></div>
+        <a href="order-item.html?name=Spaghetti%20Bolognese&price=180&image=images/spaghetti-bolognese.jpg&desc=Spaghetti%20pasta%20topped%20with%20a%20rich%20and%20savory%20meat%20sauce" class="btn-order">Order Now</a>
+      </div>
+    </div>
+
+
+      <div class="item" data-popularity="8" data-price="300" data-date="2025-09-12">
+        <img src="images/kare-kare.jpg" alt="Kare-Kare">
+        <div class="item-content">
+          <h3>Kare-Kare</h3>
+          <p>Peanut-based Filipino stew with beef and vegetables.</p>
+          <p><strong>₱300</strong></p>
+          <div class="rating" data-item="kare-kare"></div>
+          <a href="order-item.html?name=Kare-Kare&price=300&image=images/kare-kare.jpg&desc=Peanut-based%20Filipino%20stew%20with%20beef%20and%20vegetables" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="7" data-price="230" data-date="2025-09-11">
+        <img src="images/tapsilog.jpg" alt="Tapsilog">
+        <div class="item-content">
+          <h3>Tapsilog</h3>
+          <p>Beef tapa with garlic rice and egg.</p>
+          <p><strong>₱230</strong></p>
+          <div class="rating" data-item="tapsilog"></div>
+          <a href="order-item.html?name=Tapsilog&price=230&image=images/tapsilog.jpg&desc=Beef%20tapa%20with%20garlic%20rice%20and%20egg" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="9" data-price="190" data-date="2025-09-10">
+        <img src="images/matcha.jpg" alt="Matcha">
+        <div class="item-content">
+          <h3>Matcha</h3>
+          <p>Earthy Japanese matcha latte.</p>
+          <p><strong>₱190</strong></p>
+          <div class="rating" data-item="matcha"></div>
+          <a href="order-item.html?name=Matcha&price=190&image=images/matcha.jpg&desc=Earthy%20Japanese%20matcha%20latte" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="8" data-price="350" data-date="2025-09-09">
+        <img src="images/pizza.jpg" alt="Pizza">
+        <div class="item-content">
+          <h3>Pizza</h3>
+          <p>Freshly baked pizza with toppings.</p>
+          <p><strong>₱350</strong></p>
+          <div class="rating" data-item="pizza"></div>
+          <a href="order-item.html?name=Pizza&price=350&image=images/pizza.jpg&desc=Freshly%20baked%20pizza%20with%20toppings" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <!-- Fixed Added Items (Now inside grid) -->
+      <div class="item" data-popularity="9" data-price="150" data-date="2025-01-15">
+        <img src="images/spanish latte.jpg" alt="Spanish Latte">
+        <div class="item-content">
+          <h3>Spanish Latte</h3>
+          <p>Sweet and creamy latte with a Spanish twist.</p>
+          <p><strong>₱150</strong></p>
+          <div class="rating" data-item="spanish-latte"></div>
+          <a href="order-item.html?name=Spanish%20Latte&price=150&image=images/spanish%20latte.jpg&desc=Sweet%20and%20creamy%20latte%20with%20a%20Spanish%20twist" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="7" data-price="140" data-date="2025-01-20">
+        <img src="images/smoked.jpg" alt="Pork Pepper Rice">
+        <div class="item-content">
+          <h3>Pork Pepper Rice</h3>
+          <p>Thin pork with special sauce and buttered corn. Comes with rice.</p>
+          <p><strong>₱140</strong></p>
+          <div class="rating" data-item="pork-pepper-rice"></div>
+          <a href="order-item.html?name=Pork%20Pepper%20Rice&price=140&image=images/smoked.jpg&desc=Thin%20pork%20with%20special%20sauce%20and%20buttered%20corn.%20Comes%20with%20rice" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="8" data-price="160" data-date="2025-02-01">
+        <img src="images/roasted almond.jpg" alt="Roasted Almond Latte">
+        <div class="item-content">
+          <h3>Roasted Almond Latte</h3>
+          <p>A nutty latte blend topped with almond flavor.</p>
+          <p><strong>₱160</strong></p>
+          <div class="rating" data-item="roasted-almond"></div>
+          <a href="order-item.html?name=Roasted%20Almond%20Latte&price=160&image=images/roasted%20almond.jpg&desc=A%20nutty%20latte%20blend%20topped%20with%20almond%20flavor" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+      <div class="item" data-popularity="10" data-price="180" data-date="2025-02-10">
+        <img src="images/dubai-chocolate.jpg" alt="Dubai Chocolate">
+        <div class="item-content">
+          <h3>Dubai Chocolate</h3>
+          <p>Luxurious hot chocolate drink, a customer favorite.</p>
+          <p><strong>₱180</strong></p>
+          <div class="rating" data-item="dubai-chocolate"></div>
+          <a href="order-item.html?name=Dubai%20Chocolate&price=180&image=images/dubai-chocolate.jpg&desc=Luxurious%20hot%20chocolate%20drink,%20a%20customer%20favorite" class="btn-order">Order Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <button id="back-to-top">↑</button>
+  <footer><p>© 2025 Centro Café. All rights reserved.</p></footer>
+
+  <script>
+    // Rating system
+    document.querySelectorAll('.rating').forEach(ratingDiv => {
+  const itemName = ratingDiv.dataset.item;
+  const savedRating = localStorage.getItem(`rating-${itemName}`);
+  const stars = [];
+
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement('span');
+    star.classList.add('star');
+    star.innerHTML = '★';
+    star.dataset.value = i;
+
+    // Load saved rating
+    if (savedRating && i <= savedRating) {
+      star.classList.add('filled');
+    }
+
+    star.addEventListener('click', () => {
+      // Save rating
+      localStorage.setItem(`rating-${itemName}`, i);
+
+      // Update star visuals
+      stars.forEach(s => s.classList.remove('filled'));
+      for (let j = 0; j < i; j++) stars[j].classList.add('filled');
+
+      // Optional: show message
+      alert(`You rated ${itemName} ${i} stars!`);
+    });
+
+    stars.push(star);
+    ratingDiv.appendChild(star);
+  }
+});
+
+    // Search + Sort
+    const searchInput = document.getElementById('search');
+    const sortSelect = document.getElementById('sort');
+    const itemsContainer = document.getElementById('menu-items');
+    const items = Array.from(itemsContainer.children);
+
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      items.forEach(item => {
+        const name = item.querySelector('h3').textContent.toLowerCase();
+        item.style.display = name.includes(term) ? '' : 'none';
+      });
+    });
+
+    sortSelect.addEventListener('change', () => {
+      const value = sortSelect.value;
+      let sorted = [...items];
+      if (value === 'price-low') {
+        sorted.sort((a, b) => a.dataset.price - b.dataset.price);
+      } else if (value === 'price-high') {
+        sorted.sort((a, b) => b.dataset.price - a.dataset.price);
+      } else if (value === 'popularity') {
+        sorted.sort((a, b) => b.dataset.popularity - a.dataset.popularity);
+      } else if (value === 'newest') {
+        sorted.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+      }
+      itemsContainer.innerHTML = '';
+      sorted.forEach(item => itemsContainer.appendChild(item));
+    });
+
+    // Back to top
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
